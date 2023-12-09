@@ -746,6 +746,8 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: TextFormField(
+                              cursorColor: widget.searchbordorcolor ??
+                                  const Color(0xff67B0CA),
                               controller: searchController,
                               onTapOutside: (_) {},
                               scrollPadding: EdgeInsets.only(
@@ -808,8 +810,8 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                               final option = options[index];
                               final isSelected =
                                   selectedOptions.contains(option);
-                              final primaryColor =
-                                  Theme.of(context).primaryColor;
+                              final primaryColor = widget.searchbordorcolor ??
+                                  const Color(0xff67B0CA);
 
                               return _buildOption(option, primaryColor,
                                   isSelected, dropdownState, selectedOptions);
