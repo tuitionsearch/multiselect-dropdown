@@ -90,6 +90,8 @@ class MultiSelectDropDown<T> extends StatefulWidget {
   /// [searchEnabled] is the flag to enable search in dropdown. It is used to show search bar in dropdown.
   final bool searchEnabled;
 
+  final Color? searchbordorcolor;
+
   /// MultiSelectDropDown is a widget that allows the user to select multiple options from a list of options. It is a dropdown that allows the user to select multiple options.
   ///
   ///  **Selection Type**
@@ -229,6 +231,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
       this.focusNode,
       this.controller,
       this.searchEnabled = false,
+      this.searchbordorcolor = Colors.purple,
       this.dropdownBorderRadius,
       this.dropdownMargin})
       : networkConfig = null,
@@ -281,6 +284,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
       this.focusNode,
       this.controller,
       this.searchEnabled = false,
+      this.searchbordorcolor = Colors.purple,
       this.dropdownBorderRadius,
       this.dropdownMargin})
       : options = const [],
@@ -762,7 +766,8 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
                                   borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor,
+                                    color: widget.searchbordorcolor ??
+                                        Colors.purple,
                                     width: 0.8,
                                   ),
                                 ),
