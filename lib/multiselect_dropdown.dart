@@ -69,6 +69,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
   final EdgeInsets? padding;
   final bool showClearIcon;
   final int? maxItems;
+  final bool isdropdownactive;
 
   // dropdown border radius
   final double? dropdownBorderRadius;
@@ -232,6 +233,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
       this.controller,
       this.searchEnabled = false,
       this.searchbordorcolor = Colors.purple,
+      this.isdropdownactive = true,
       this.dropdownBorderRadius,
       this.dropdownMargin})
       : networkConfig = null,
@@ -285,6 +287,7 @@ class MultiSelectDropDown<T> extends StatefulWidget {
       this.controller,
       this.searchEnabled = false,
       this.searchbordorcolor = Colors.purple,
+      this.isdropdownactive = true,
       this.dropdownBorderRadius,
       this.dropdownMargin})
       : options = const [],
@@ -476,7 +479,7 @@ class _MultiSelectDropDownState<T> extends State<MultiSelectDropDown<T>> {
         child: InkWell(
           splashColor: null,
           splashFactory: null,
-          onTap: _toggleFocus,
+          onTap: (widget.isdropdownactive == true) ? _toggleFocus : null,
           child: Container(
             height: widget.chipConfig.wrapType == WrapType.wrap ? null : 52,
             constraints: BoxConstraints(
